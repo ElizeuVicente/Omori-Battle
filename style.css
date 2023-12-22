@@ -1,6 +1,72 @@
 body {
-    background-image: url(./img/OmoriPhase1.webp);
+    background-image: url(./assets/img/OmoriPhase1.webp);
     background-position: 50% 290px;
     background-repeat: no-repeat;
     background-size: 20%;
+}
+
+@font-face {
+    font-family: 'Omori1';
+    src: url('./assets/font/OMORI-GAME.ttf') format('truetype');
+
+    font-family: 'Omori2';
+    src: url('./assets/font/OMORI-GAME2.ttf') format('truetype');
+}
+
+#divMusicPanel button{
+    color: #ffffff;
+    background-color: #000000;
+    border: 5px solid #ffffff;
+    outline: 5px solid #000000;
+    
+}
+
+#divMusicPanel button img {
+    width: 20px;
+    height: 20px;
+    margin: 5px;
+}
+
+
+
+.PlayerBox {
+    width: 100%;
+    height: 190px;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top: 44em;
+}
+
+.PlayerBox .container {
+    display: grid;
+    width: 66.66%;
+    height: 100%;
+    
+}
+
+.PlayerBox .container button {
+    height: 80px;
+    font-family: 'Omori2';
+    font-size: 50px;
+    color: #ffffff;
+    background-color: #000000;
+    border: 5px solid #ffffff;
+    outline: 5px solid #000000;
+}
+
+.SunnyPortrait{
+    height: 190px;
+    width: 220px;
+    position: absolute;
+    right: 87%;
+}
+.SunnyPortrait .SunnyFace {
+    width: 100%;
+    height: 100%;
+    
+    background-image: url(./assets/img/Sunny.webp);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
 }

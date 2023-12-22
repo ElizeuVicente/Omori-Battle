@@ -1,14 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Omori Battle</title>
     <link rel="stylesheet" href="./style.css">
-    <link rel="shortcut icon" href="./img/Mewo.webp" type="image/x-icon">
+    <link rel="shortcut icon" href="./assets/img/icon/Mewo.webp" type="image/x-icon">
 </head>
+
 <body>
-    
+    <div id="divMusicPanel">
+        <button onclick="playMusic()"><img src="./assets/img/MusicButton/PlayButton.svg" alt=""></button>
+    </div>
+
+   
+    <div class="PlayerBox">
+
+        <div class="SunnyPortrait">
+            <div class="SunnyFace"></div>
+        </div>
+
+        <div class="container" id="divActionBox">
+            <button onclick="LutarHTML()">LUTAR</button>
+            <button>FUGIR</button>
+        </div>
+        
+    </div>
 </body>
+
 </html>
 <script src="./script.js"></script>
