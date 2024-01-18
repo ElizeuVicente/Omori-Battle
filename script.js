@@ -19,10 +19,10 @@ const Sunny = {
     Habilidades: {}
 }
 
-Sunny.Habilidades.Acalmar = Sunny.HP += (325 / 2);
+Sunny.Habilidades.Acalmar = (325 / 2);
 Sunny.Habilidades.Alegar = Sunny.Ataque;
 Sunny.Habilidades.Encorajar = false;
-Sunny.Habilidades.Estimar = Sunny.HP = 325;
+Sunny.Habilidades.Estimar = 325;
 
 function playMusic() {
     audio.play()
@@ -36,16 +36,68 @@ function pauseMusic() {
 
 function LutarHTML() {
     divActionBox.innerHTML = `
-            <button onclick="AttackSunny()">ATACAR</button>
-            <button>HABILIDADE</button>
+            <button onclick="AttackSunny(0)">ATACAR</button>
+            <button onclick="ShowHab()">HABILIDADE</button>
     `
 }
 
-function AttackSunny() {
-    Omori.HP -= Sunny.Ataque
-    console.log(`Sunny ataca Omori, causando ${Omori.Ataque}`)
-    console.log(`Omori HP: ${Omori.HP}`)
+function ShowHab() {
+    divActionBox.innerHTML = `
+    <div class="HabilityBox">
+    <div class="HabilityBoxCusto">
+        <p>Custo: <span id="spanCustoM"></span></p>
+        
+    </div>
+    
+    <div>
+        <a onclick="AttackSunny(1)">Acalmar</a>
+        <a onclick="AttackSunny(2)">Alegar</a>
+    </div>
+    <div>
+        <a onclick="AttackSunny(3)">Encorajar</a>
+        <a onclick="AttackSunny(4)">Estimar</a>
+    </div>
+
+</div>
+    `
+}
+
+function AttackSunny(tipoAtaque) {
+    if (tipoAtaque == 0) {
+
+        Omori.HP -= Sunny.Ataque;
+        console.log(`Sunny ataca Omori, causando ${Omori.Ataque}`);
+
+    } else if (tipoAtaque == 1) {
+
+        Sunny.HP += Sunny.Habilidades.Acalmar;
+        console.log(`Sunny se acalmou e regenerou sua vida para ${Sunny.HP}`);
+
+    } else if (tipoAtaque == 2) {
+
+        for (i = 0; i < 3; i++) {
+            Omori.HP -= Omori.Habilidades.Cortar
+            console.log(`Sunny corta Omori usando sua lamina, causando ${Omori.Ataque}`)
+        }
+
+    } else if (tipoAtaque == 3) {
+
+        Sunny.Habilidades.Encorajar = true;
+        console.log(`Sunny se sente encorajado, por 3 turnos não gasta mana`)
+
+    } else {
+
+        Sunny.HP = Sunny.Habilidades.Estimar
+        console.log(`Sunny se estimou e regenerou sua vida para ${Sunny.HP}`);
+
+    }
+   
     AttackOmori()
+
+    console.log(`===========================`);
+    console.log(`Sunny HP: ${Sunny.HP}`);
+    console.log(`Omori HP: ${Omori.HP}`);
+    console.log(`===========================`);
     divActionBox.innerHTML = `
     <button onclick="LutarHTML()">LUTAR</button>
     <button>FUGIR</button>
@@ -73,7 +125,7 @@ function AttackOmori() {
     } else if (selHabilidade == 2) {
         for (i = 0; i < 3; i++) {
             Sunny.HP -= Omori.Habilidades.Cortar
-            console.log(`Omori corta Sunny suando sua lamina, causando ${Omori.Ataque}`)
+            console.log(`Omori corta Sunny usando sua lamina, causando ${Omori.Ataque}`)
         }
 
     } else {
@@ -81,8 +133,6 @@ function AttackOmori() {
 
         console.log('Apagar')
     }
-
-    console.log(`Sunny HP${Sunny.HP}`)
 }
 
 

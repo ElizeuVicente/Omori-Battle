@@ -55,6 +55,38 @@ body {
     outline: 5px solid #000000;
 }
 
+.PlayerBox .HabilityBox {
+    background-color: #000000;
+    border: 5px solid #ffffff;
+    outline: 5px solid #000000;
+}
+
+.PlayerBox .HabilityBox div{
+    margin: 6px 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.PlayerBox .HabilityBox a{
+    font-family: 'Omori2';
+    font-size: 50px;
+    color: #ffffff;
+    cursor: context-menu;
+}
+
+.PlayerBox .HabilityBox p{
+    font-family: 'Omori2';
+    font-size: 30px;
+    color: #ffffff;
+    margin: 0;
+
+}
+
+.PlayerBox .HabilityBox .HabilityBoxCusto {
+    border-bottom: 5px solid #ffffff;
+}
+
 .SunnyPortrait{
     height: 190px;
     width: 220px;
